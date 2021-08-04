@@ -3,7 +3,7 @@ package main
 import (
 	"fmt"
 
-	"github.com/gofiber/fiber"
+	"github.com/gofiber/fiber/v2"
 	"github.com/jinzhu/gorm"
 	"github.com/sutin1234/go-fiber-2021/book"
 	"github.com/sutin1234/go-fiber-2021/database"
@@ -27,11 +27,11 @@ func main() {
 	setupUserRoutes(app)
 
 	// serve fiber
-	app.Listen(3000)
+	app.Listen(":3000")
 }
 
-func helloWorld(c *fiber.Ctx) {
-	c.Send("Hello World")
+func helloWorld(c *fiber.Ctx) error {
+	return c.SendString("Hello, World 👋!")
 }
 
 func initDatabase() {

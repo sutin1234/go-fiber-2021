@@ -10,7 +10,7 @@ import (
 	"github.com/sutin1234/go-fiber-2021/user"
 )
 
-const contextAPI = "/api/v1"
+const contextAPI = "/api/v2"
 const bookContextAPI = contextAPI + "/book"
 const userContextAPI = contextAPI + "/user"
 
@@ -18,7 +18,7 @@ func main() {
 	app := fiber.New()
 	app.Get("/", helloWorld)
 
-	// intailized database
+	// initialized database
 	initDatabase()
 	defer database.DBConn.Close()
 
